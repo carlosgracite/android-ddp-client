@@ -499,6 +499,10 @@ public class DDPStateSingleton extends MeteorAuthCommands
                     broadcastSubscriptionChanged(collName,
                             DdpMessageType.CHANGED, docId);
                 }
+            } else if (msgtype.equals(DdpMessageType.CLOSED)) {
+                Log.v("DDPStateSingleton", "update - CLOSED" );
+                mDDPState = DDPSTATE.Closed;
+                broadcastConnectionState(mDDPState);
             }
         }
     }
